@@ -95,14 +95,14 @@
     <ul class="en">
       <li>Pipeline: chat export parsing → LLM-assisted Q&amp;A extraction (anonymised) → deduplication and categorisation → FAISS index with multilingual sentence embeddings → answer generation with GPT-4o-mini.</li>
       <li>Knowledge base of 227 curated entries in 11 categories; sender names removed.</li>
-      <li>Own evaluation framework (LLM-as-judge): 95 % accuracy on 22 reference questions and correct refusal of all off-topic test questions. Small test set, so indicative only.</li>
+      <li>Own evaluation framework (LLM-as-judge): 95 % accuracy on 22 reference questions taken from the knowledge base itself, and correct refusal of all five off-topic test questions. Small test set, so indicative only.</li>
       <li>Explicit language detection instead of prompt-only instructions, after the model occasionally answered in the wrong language.</li>
       <li>GitHub Actions CI (ruff, pytest, gitleaks); test deployment on a hardened VPS as a systemd service.</li>
     </ul>
     <ul class="de">
       <li>Pipeline: Parsing des Chat-Exports → LLM-gestützte Q&amp;A-Extraktion (anonymisiert) → Deduplizierung und Kategorisierung → FAISS-Index mit multilingualen Sentence-Embeddings → Antwortgenerierung mit GPT-4o-mini.</li>
       <li>Wissensbasis mit 227 kuratierten Einträgen in 11 Kategorien; Absendernamen entfernt.</li>
-      <li>Eigenes Evaluierungsframework (LLM-as-Judge): 95 % Genauigkeit auf 22 Referenzfragen und korrekte Ablehnung aller themenfremden Testfragen. Kleines Testset, daher nur ein Richtwert.</li>
+      <li>Eigenes Evaluierungsframework (LLM-as-Judge): 95 % Genauigkeit auf 22 Referenzfragen aus der Wissensbasis selbst und korrekte Ablehnung aller fünf themenfremden Testfragen. Kleines Testset, daher nur ein Richtwert.</li>
       <li>Explizite Spracherkennung statt reiner Prompt-Anweisung, nachdem das Modell gelegentlich in der falschen Sprache antwortete.</li>
       <li>CI mit GitHub Actions (ruff, pytest, gitleaks); Testbetrieb auf einem gehärteten VPS als systemd-Service.</li>
     </ul>
@@ -111,7 +111,6 @@
     <div class="tags"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">FAISS</span><span class="tag">Sentence-Transformers</span><span class="tag">OpenAI API</span><span class="tag">pytest</span><span class="tag">GitHub Actions</span><span class="tag">systemd</span></div>
     <a class="repo" data-repo="rag" hidden><span class="en">View repository →</span><span class="de">Repository ansehen →</span></a>
   </article>
-
   <!-- 2. Reservation automation -->
   <article class="card">
     <h3><span class="en">Email-based reservation automation</span><span class="de">E-Mail-basierte Reservierungsautomatisierung</span></h3>
