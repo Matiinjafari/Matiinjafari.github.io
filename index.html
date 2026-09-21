@@ -20,6 +20,8 @@
   .wrap{max-width:860px;margin:0 auto;padding:0 20px}
   header{padding:56px 0 28px;border-bottom:1px solid var(--line)}
   .top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+  .id{display:flex;align-items:center;gap:18px}
+  .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid var(--line);flex:none}
   h1{margin:0 0 4px;font-size:2.2rem;line-height:1.2}
   .role{color:var(--muted);font-size:1.1rem;margin:0 0 16px}
   .lang{display:flex;gap:6px}
@@ -50,6 +52,8 @@
   body.lang-de .en{display:none}
   @media (max-width:600px){
     h1{font-size:1.8rem}
+    .avatar{width:68px;height:68px}
+    .id{gap:12px}
     .skills{grid-template-columns:1fr;gap:2px}
     .skills dd{margin-bottom:10px}
   }
@@ -60,12 +64,15 @@
 
 <header>
   <div class="top">
-    <div>
+    <div class="id">
+      <img class="avatar" src="profile.jpg" alt="Matin Jafari" width="96" height="96">
+      <div>
       <h1>Matin Jafari</h1>
       <p class="role">
         <span class="en">Full-Stack Software Developer · Industrial IoT &amp; Data Integration</span>
         <span class="de">Full-Stack-Softwareentwickler · Industrial IoT &amp; Datenintegration</span>
       </p>
+      </div>
     </div>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-l="en" aria-pressed="true">EN</button>
