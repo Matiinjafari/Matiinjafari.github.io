@@ -116,23 +116,23 @@
   <article class="card">
     <h3><span class="en">Email-based reservation automation</span><span class="de">E-Mail-basierte Reservierungsautomatisierung</span></h3>
     <p class="meta">Python · 07/2025 – 08/2025</p>
-    <p class="en">A Python application that processes room-reservation requests received by email, checks availability and replies automatically.</p>
-    <p class="de">Eine Python-Anwendung, die Raumreservierungsanfragen per E-Mail verarbeitet, die Verfügbarkeit prüft und automatisch antwortet.</p>
+    <p class="en">A Python application that processes room and grill reservation requests received by email, checks availability and replies to the sender.</p>
+    <p class="de">Eine Python-Anwendung, die Reservierungsanfragen für Gemeinschaftsraum und Grill per E-Mail verarbeitet, die Verfügbarkeit prüft und dem Absender antwortet.</p>
     <ul class="en">
-      <li>Reads unread emails via IMAP (SSL), parses multipart and plain-text bodies and extracts dates and times from unstructured text; LLM-assisted extraction as an extension.</li>
-      <li>Prevents double bookings with availability checks and parameterised SQL queries.</li>
-      <li>Sends confirmation or rejection emails via SMTP (TLS); credentials are read from environment variables.</li>
-      <li>Exports all reservations to Excel (Pandas, OpenPyXL).</li>
-      <li>Scheduled GitLab CI/CD pipeline with separate setup and execution stages; database and report are kept as pipeline artifacts.</li>
+      <li>Reads unread emails via IMAP and extracts date, time, room number and requested extras with an LLM (OpenAI function calling, validated with Pydantic); a regex-based fallback reads labelled fields if the LLM call fails.</li>
+      <li>Negation-aware detection (&ldquo;no grill&rdquo;) and rules for resource type, missing year and deposit.</li>
+      <li>Prevents double bookings by checking overlapping time slots in PostgreSQL; every request is logged with its status.</li>
+      <li>Confirmation and rejection emails via SMTP (off by default until enabled) and a CSV export of all reservations for the admins.</li>
+      <li>Unit tests with pytest for the parsing logic; scheduled GitLab CI/CD pipeline for processing and export.</li>
     </ul>
     <ul class="de">
-      <li>Liest ungelesene E-Mails per IMAP (SSL), verarbeitet Multipart- und Plaintext-Bodies und extrahiert Datum und Uhrzeit aus unstrukturiertem Text; LLM-gestützte Extraktion als Erweiterung.</li>
-      <li>Verhindert Doppelbuchungen durch Verfügbarkeitsprüfung und parametrisierte SQL-Abfragen.</li>
-      <li>Versendet Bestätigungen oder Absagen per SMTP (TLS); Zugangsdaten stammen aus Umgebungsvariablen.</li>
-      <li>Export aller Reservierungen nach Excel (Pandas, OpenPyXL).</li>
-      <li>Zeitgesteuerte GitLab-CI/CD-Pipeline mit getrennten Setup- und Ausführungsstufen; Datenbank und Report werden als Pipeline-Artefakte gesichert.</li>
+      <li>Liest ungelesene E-Mails per IMAP und extrahiert Datum, Uhrzeit, Zimmernummer und gewünschte Extras mit einem LLM (OpenAI Function Calling, Validierung mit Pydantic); ein regexbasierter Fallback liest beschriftete Felder, falls der LLM-Aufruf fehlschlägt.</li>
+      <li>Negationsbewusste Erkennung (&bdquo;kein Grill&ldquo;) und Regeln für Ressourcentyp, fehlendes Jahr und Kaution.</li>
+      <li>Verhindert Doppelbuchungen durch Prüfung überlappender Zeitfenster in PostgreSQL; jede Anfrage wird mit ihrem Status protokolliert.</li>
+      <li>Bestätigungs- und Ablehnungs-E-Mails per SMTP (standardmäßig aus, bis aktiviert) und CSV-Export aller Reservierungen für die Admins.</li>
+      <li>Unit-Tests mit pytest für die Parsing-Logik; zeitgesteuerte GitLab-CI/CD-Pipeline für Verarbeitung und Export.</li>
     </ul>
-    <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">IMAP/SMTP</span><span class="tag">Pandas</span><span class="tag">GitLab CI/CD</span></div>
+    <div class="tags"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">OpenAI API</span><span class="tag">Pydantic</span><span class="tag">IMAP/SMTP</span><span class="tag">pytest</span><span class="tag">GitLab CI/CD</span></div>
     <a class="repo" data-repo="reservation" hidden><span class="en">View repository →</span><span class="de">Repository ansehen →</span></a>
   </article>
 
@@ -251,7 +251,7 @@
   var GITHUB_PROFILE = "https://github.com/Matiinjafari";
   var REPOS = {
     rag:         "https://github.com/Matiinjafari/hamburg-ai-assistant",  // Hamburg AI Assistant
-    reservation: ""   // Reservation automation
+    reservation: "https://github.com/Matiinjafari/reservation-automation"   // Reservation automation
   };
   // -----------------------------------------------------------------------
 
